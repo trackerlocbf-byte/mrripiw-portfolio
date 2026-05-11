@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MR.RIPIW — Creative Designer & Visual Artist</title>
+<title>MR.RIPIW — Engineering Epic Visuals for Bold Brands</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -27,9 +27,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; font-size: 16px; }
-
   body {
     background: var(--black);
     color: var(--white);
@@ -45,7 +43,6 @@
     pointer-events: none; z-index: 9999;
     transform: translate(-50%,-50%);
     transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
-    mix-blend-mode: normal;
   }
   #cursor-trail {
     position: fixed; width: 36px; height: 36px;
@@ -55,7 +52,6 @@
     transition: transform 0.18s ease, width 0.3s, height 0.3s, opacity 0.3s;
     opacity: 0.5;
   }
-  body:hover #cursor { opacity: 1; }
 
   /* LOADING SCREEN */
   #loader {
@@ -68,8 +64,7 @@
   .loader-name {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(3rem, 10vw, 8rem);
-    letter-spacing: 0.3em;
-    color: var(--white);
+    letter-spacing: 0.3em; color: var(--white);
     animation: loaderPulse 1.5s ease infinite;
   }
   .loader-name span { color: var(--red-bright); }
@@ -134,17 +129,12 @@
     transition: background 0.3s, box-shadow 0.3s; font-family: 'Space Mono', monospace;
     cursor: none;
   }
-  .nav-cta:hover {
-    background: var(--red); box-shadow: 0 0 20px var(--red-glow);
-  }
+  .nav-cta:hover { background: var(--red); box-shadow: 0 0 20px var(--red-glow); }
   .hamburger {
     display: none; flex-direction: column; gap: 5px; cursor: none;
     background: none; border: none; padding: 4px;
   }
-  .hamburger span {
-    width: 24px; height: 1.5px; background: var(--white);
-    transition: transform 0.3s, opacity 0.3s;
-  }
+  .hamburger span { width: 24px; height: 1.5px; background: var(--white); transition: transform 0.3s, opacity 0.3s; }
 
   /* HERO */
   #hero {
@@ -175,9 +165,7 @@
     text-transform: uppercase; margin-bottom: 1.5rem;
     opacity: 0; animation: fadeInUp 0.8s 2.8s ease forwards;
   }
-  .hero-tag::before, .hero-tag::after {
-    content: '——'; color: var(--red); margin: 0 0.8em; opacity: 0.5;
-  }
+  .hero-tag::before, .hero-tag::after { content: '——'; color: var(--red); margin: 0 0.8em; opacity: 0.5; }
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(5rem, 18vw, 16rem);
@@ -186,7 +174,6 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
     opacity: 0; animation: heroTitleIn 1.2s 3s cubic-bezier(.16,1,.3,1) forwards;
-    text-shadow: none;
     filter: drop-shadow(0 0 60px rgba(200,16,46,0.3));
   }
   @keyframes heroTitleIn {
@@ -195,7 +182,7 @@
   }
   .hero-subtitle {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.7rem);
     font-style: italic; font-weight: 300;
     color: var(--white2); margin-top: 0.5rem; letter-spacing: 0.08em;
     opacity: 0; animation: fadeInUp 0.8s 3.4s ease forwards;
@@ -207,7 +194,7 @@
   }
   .hero-desc {
     font-size: 0.72rem; letter-spacing: 0.12em; color: var(--white3);
-    max-width: 500px; margin: 0 auto 2.5rem; line-height: 2;
+    max-width: 560px; margin: 0 auto 2.5rem; line-height: 2;
     opacity: 0; animation: fadeInUp 0.8s 3.8s ease forwards;
   }
   .hero-btns {
@@ -236,16 +223,13 @@
     cursor: none;
   }
   .btn-outline:hover {
-    border-color: var(--red);
-    box-shadow: 0 0 20px var(--red-glow);
-    background: var(--red-dim);
-    transform: translateY(-2px);
+    border-color: var(--red); box-shadow: 0 0 20px var(--red-glow);
+    background: var(--red-dim); transform: translateY(-2px);
   }
   .hero-scroll {
     position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
-    font-size: 0.6rem; letter-spacing: 0.3em; color: var(--white3);
-    text-transform: uppercase;
+    font-size: 0.6rem; letter-spacing: 0.3em; color: var(--white3); text-transform: uppercase;
     opacity: 0; animation: fadeInUp 0.8s 4.4s ease forwards;
   }
   .scroll-line {
@@ -265,19 +249,13 @@
   .section-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(2.5rem, 7vw, 5.5rem);
-    letter-spacing: 0.04em; line-height: 0.9;
-    color: var(--white);
+    letter-spacing: 0.04em; line-height: 0.9; color: var(--white);
   }
   .section-title .accent { color: var(--red-bright); }
 
   /* ABOUT */
   #about { background: var(--dark); }
-  .about-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-  }
-  .about-image-wrap {
-    position: relative;
-  }
+  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
   .about-image-frame {
     position: relative; width: 100%; aspect-ratio: 3/4; max-width: 380px; margin: 0 auto;
   }
@@ -290,39 +268,35 @@
     content:''; position:absolute; top:12px; left:12px; right:-12px; bottom:-12px;
     border: 1px solid var(--border2); z-index:0;
   }
-  @keyframes framePulse {
-    0%,100%{box-shadow:0 0 0 rgba(200,16,46,0)} 50%{box-shadow:0 0 30px var(--red-glow)}
-  }
+  @keyframes framePulse { 0%,100%{box-shadow:0 0 0 rgba(200,16,46,0)} 50%{box-shadow:0 0 30px var(--red-glow)} }
   .about-img-inner {
     position:relative; z-index:1; width:100%; height:100%;
     background: linear-gradient(135deg, var(--dark2) 0%, var(--dark3) 50%, rgba(200,16,46,0.08) 100%);
     display:flex; align-items:center; justify-content:center; overflow:hidden;
   }
+  /* Profile photo support */
+  .about-img-inner img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center top;
+    position: absolute; inset: 0; z-index: 2;
+  }
   .about-img-placeholder {
     font-family:'Bebas Neue',sans-serif; font-size:5rem; letter-spacing:0.2em;
     color:rgba(200,16,46,0.2);
   }
-  .about-img-inner svg { position:absolute; inset:0; width:100%; height:100%; opacity:0.15; }
-  .about-corner {
-    position:absolute; width:20px; height:20px; z-index:2;
-  }
+  .about-corner { position:absolute; width:20px; height:20px; z-index:3; }
   .about-corner.tl { top:-2px; left:-2px; border-top:2px solid var(--red-bright); border-left:2px solid var(--red-bright); }
   .about-corner.tr { top:-2px; right:-2px; border-top:2px solid var(--red-bright); border-right:2px solid var(--red-bright); }
   .about-corner.bl { bottom:-2px; left:-2px; border-bottom:2px solid var(--red-bright); border-left:2px solid var(--red-bright); }
   .about-corner.br { bottom:-2px; right:-2px; border-bottom:2px solid var(--red-bright); border-right:2px solid var(--red-bright); }
   .about-badge {
-    position:absolute; bottom:-1.5rem; right:-1.5rem; z-index:3;
-    width:90px; height:90px; background:var(--red);
-    border-radius:50%; display:flex; flex-direction:column;
-    align-items:center; justify-content:center;
-    box-shadow:0 0 40px var(--red-glow);
-    animation: badgeSpin 20s linear infinite;
+    position:absolute; bottom:-1.5rem; right:-1.5rem; z-index:4;
+    width:90px; height:90px; background:var(--red); border-radius:50%;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    box-shadow:0 0 40px var(--red-glow); animation: badgePulse 3s ease infinite;
   }
   .about-badge-num { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; line-height:1; }
-  .about-badge-text { font-size:0.45rem; letter-spacing:0.2em; text-transform:uppercase; }
-  @keyframes badgeSpin {
-    0%{box-shadow:0 0 30px var(--red-glow)} 50%{box-shadow:0 0 60px rgba(255,26,60,0.7)} 100%{box-shadow:0 0 30px var(--red-glow)}
-  }
+  .about-badge-text { font-size:0.42rem; letter-spacing:0.18em; text-transform:uppercase; text-align:center; }
+  @keyframes badgePulse { 0%,100%{box-shadow:0 0 30px var(--red-glow)} 50%{box-shadow:0 0 60px rgba(255,26,60,0.7)} }
   .about-text { display:flex; flex-direction:column; gap:2rem; }
   .about-bio {
     font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:300;
@@ -337,16 +311,11 @@
     color:var(--white2); background:var(--red-dim);
     transition:border-color 0.3s, background 0.3s, color 0.3s;
   }
-  .skill-chip:hover {
-    border-color:var(--red-bright); background:var(--red);
-    color:var(--white); box-shadow:0 0 15px var(--red-glow);
-  }
+  .skill-chip:hover { border-color:var(--red-bright); background:var(--red); color:var(--white); box-shadow:0 0 15px var(--red-glow); }
 
   /* PORTFOLIO */
   #portfolio { background: var(--black); }
-  .filter-bar {
-    display:flex; flex-wrap:wrap; gap:0.5rem; margin:2.5rem 0;
-  }
+  .filter-bar { display:flex; flex-wrap:wrap; gap:0.5rem; margin:2.5rem 0; }
   .filter-btn {
     padding:0.5rem 1.2rem; border:1px solid var(--border2);
     background:transparent; color:var(--white3); font-size:0.62rem;
@@ -363,24 +332,30 @@
     gap:1.5rem; margin-top:1rem;
   }
   .port-item {
-    position:relative; aspect-ratio:4/3; overflow:hidden;
+    position:relative; overflow:hidden;
     background:var(--dark2); cursor:none;
     transition:transform 0.4s cubic-bezier(.16,1,.3,1);
     border:1px solid var(--border2);
   }
+  /* Mixed aspect ratios */
+  .port-item[data-ratio="landscape"] { aspect-ratio: 16/9; }
+  .port-item[data-ratio="portrait"]  { aspect-ratio: 3/4; }
+  .port-item[data-ratio="square"]    { aspect-ratio: 1/1; }
   .port-item:hover { transform:scale(1.02); }
-  .port-item.hidden { display:none; }
   .port-img {
     width:100%; height:100%;
     background: linear-gradient(135deg, var(--dark2), var(--dark3));
-    position:relative; overflow:hidden;
-    transition:transform 0.6s ease;
+    position:relative; overflow:hidden; transition:transform 0.6s ease;
   }
   .port-item:hover .port-img { transform:scale(1.08); }
   .port-img-inner {
     width:100%; height:100%; display:flex; align-items:center; justify-content:center;
     font-family:'Bebas Neue',sans-serif; font-size:4rem; letter-spacing:0.1em;
     color:rgba(255,255,255,0.05); position:relative; overflow:hidden;
+  }
+  .port-img-inner img {
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; z-index:1;
   }
   .port-glow {
     position:absolute; bottom:0; left:50%; transform:translateX(-50%);
@@ -396,14 +371,8 @@
     justify-content:flex-end; padding:1.5rem;
   }
   .port-item:hover .port-overlay { opacity:1; }
-  .port-cat {
-    font-size:0.55rem; letter-spacing:0.3em; color:var(--red-bright);
-    text-transform:uppercase; margin-bottom:0.4rem;
-  }
-  .port-name {
-    font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:600;
-    color:var(--white); line-height:1.2;
-  }
+  .port-cat { font-size:0.55rem; letter-spacing:0.3em; color:var(--red-bright); text-transform:uppercase; margin-bottom:0.4rem; }
+  .port-name { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:600; color:var(--white); line-height:1.2; }
   .port-expand {
     position:absolute; top:1rem; right:1rem;
     width:36px; height:36px; border:1px solid var(--white3);
@@ -411,16 +380,13 @@
     font-size:1rem; color:var(--white); background:rgba(5,5,7,0.6);
     opacity:0; transition:all 0.3s; cursor:none;
   }
-  .port-item:hover .port-expand {
-    opacity:1; border-color:var(--red); color:var(--red-bright);
-  }
+  .port-item:hover .port-expand { opacity:1; border-color:var(--red); color:var(--red-bright); }
 
   /* MODAL */
   #modal {
     position:fixed; inset:0; z-index:5000; background:rgba(5,5,7,0.95);
     display:flex; align-items:center; justify-content:center;
-    opacity:0; visibility:hidden; transition:all 0.4s;
-    backdrop-filter:blur(20px);
+    opacity:0; visibility:hidden; transition:all 0.4s; backdrop-filter:blur(20px);
   }
   #modal.open { opacity:1; visibility:visible; }
   .modal-inner {
@@ -437,12 +403,13 @@
   }
   .modal-close:hover { background:var(--red); border-color:var(--red); }
   .modal-img {
-    width:100%; aspect-ratio:16/9;
+    width:100%; aspect-ratio:16/9; overflow:hidden;
     background:linear-gradient(135deg, var(--dark2), var(--dark3), rgba(200,16,46,0.1));
-    display:flex; align-items:center; justify-content:center;
+    display:flex; align-items:center; justify-content:center; position:relative;
     font-family:'Bebas Neue',sans-serif; font-size:6rem; color:rgba(200,16,46,0.15);
     letter-spacing:0.1em; border:1px solid var(--border);
   }
+  .modal-img img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
   .modal-info { padding:1.5rem 0; }
   .modal-cat { font-size:0.6rem; letter-spacing:0.35em; color:var(--red-bright); text-transform:uppercase; }
   .modal-title { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; margin:0.4rem 0; }
@@ -451,35 +418,21 @@
   /* FEATURED */
   #featured { background: var(--dark2); overflow:hidden; }
   .featured-slider-wrap { position:relative; margin-top:3rem; overflow:hidden; }
-  .featured-track {
-    display:flex; transition:transform 0.6s cubic-bezier(.16,1,.3,1);
-  }
+  .featured-track { display:flex; transition:transform 0.6s cubic-bezier(.16,1,.3,1); }
   .featured-card {
     min-width:100%; position:relative; height:500px;
     display:flex; align-items:flex-end; overflow:hidden;
   }
-  .featured-card-bg {
-    position:absolute; inset:0;
-    transition:transform 6s ease;
-  }
+  .featured-card-bg { position:absolute; inset:0; transition:transform 6s ease; }
   .featured-card:hover .featured-card-bg { transform:scale(1.04); }
   .featured-card-content {
     position:relative; z-index:2; padding:3rem; width:100%;
     background:linear-gradient(to top, rgba(5,5,7,0.98) 0%, rgba(5,5,7,0.6) 50%, transparent 100%);
   }
-  .featured-num {
-    font-family:'Bebas Neue',sans-serif; font-size:0.8rem;
-    letter-spacing:0.3em; color:var(--red-bright); margin-bottom:0.5rem;
-  }
-  .featured-title {
-    font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,5vw,3.5rem);
-    letter-spacing:0.06em; line-height:0.9; margin-bottom:1rem; color:var(--white);
-  }
+  .featured-num { font-family:'Bebas Neue',sans-serif; font-size:0.8rem; letter-spacing:0.3em; color:var(--red-bright); margin-bottom:0.5rem; }
+  .featured-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,5vw,3.5rem); letter-spacing:0.06em; line-height:0.9; margin-bottom:1rem; color:var(--white); }
   .featured-desc { font-size:0.7rem; color:var(--white3); line-height:2; max-width:500px; margin-bottom:1.5rem; }
-  .featured-controls {
-    position:absolute; bottom:3rem; right:3rem; z-index:3;
-    display:flex; gap:0.5rem;
-  }
+  .featured-controls { position:absolute; bottom:3rem; right:3rem; z-index:3; display:flex; gap:0.5rem; }
   .fc-btn {
     width:44px; height:44px; border:1px solid var(--border);
     background:rgba(5,5,7,0.7); color:var(--white); font-size:1rem;
@@ -487,9 +440,7 @@
     transition:all 0.3s; backdrop-filter:blur(10px);
   }
   .fc-btn:hover { border-color:var(--red); background:var(--red); box-shadow:0 0 20px var(--red-glow); }
-  .featured-dots {
-    display:flex; gap:0.5rem; margin-top:1.5rem;
-  }
+  .featured-dots { display:flex; gap:0.5rem; margin-top:1.5rem; }
   .feat-dot {
     width:20px; height:2px; background:var(--border2);
     transition:all 0.3s; cursor:none;
@@ -515,29 +466,17 @@
   .stat-card:hover { border-color:var(--border); transform:translateY(-4px); }
   .stat-card:hover::before { transform:scaleX(1); }
   .stat-num {
-    font-family:'Bebas Neue',sans-serif; font-size:4rem;
-    color:var(--red-bright); line-height:1;
+    font-family:'Bebas Neue',sans-serif; font-size:4rem; color:var(--red-bright); line-height:1;
     filter:drop-shadow(0 0 20px rgba(200,16,46,0.4));
   }
   .stat-label { font-size:0.62rem; letter-spacing:0.25em; color:var(--white3); text-transform:uppercase; margin-top:0.5rem; }
 
   /* TIMELINE */
   .timeline { margin-top:3rem; }
-  .timeline-item {
-    display:grid; grid-template-columns:120px 30px 1fr;
-    gap:0 1.5rem; margin-bottom:2.5rem; align-items:start;
-  }
-  .tl-year {
-    font-family:'Bebas Neue',sans-serif; font-size:1.5rem;
-    color:var(--red-bright); letter-spacing:0.05em; text-align:right; padding-top:0.2rem;
-  }
-  .tl-dot-wrap {
-    display:flex; flex-direction:column; align-items:center; gap:0;
-  }
-  .tl-dot {
-    width:10px; height:10px; border-radius:50%; background:var(--red);
-    box-shadow:0 0 10px var(--red-glow); flex-shrink:0; margin-top:0.5rem;
-  }
+  .timeline-item { display:grid; grid-template-columns:120px 30px 1fr; gap:0 1.5rem; margin-bottom:2.5rem; align-items:start; }
+  .tl-year { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; color:var(--red-bright); letter-spacing:0.05em; text-align:right; padding-top:0.2rem; }
+  .tl-dot-wrap { display:flex; flex-direction:column; align-items:center; }
+  .tl-dot { width:10px; height:10px; border-radius:50%; background:var(--red); box-shadow:0 0 10px var(--red-glow); flex-shrink:0; margin-top:0.5rem; }
   .tl-line { width:1px; flex:1; background:var(--border); min-height:40px; }
   .tl-content { padding-bottom:2rem; }
   .tl-role { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; margin-bottom:0.3rem; }
@@ -546,10 +485,7 @@
 
   /* SERVICES */
   #services { background:var(--dark); }
-  .services-grid {
-    display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-    gap:1.5rem; margin-top:3rem;
-  }
+  .services-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem; margin-top:3rem; }
   .service-card {
     border:1px solid var(--border2); padding:2.5rem;
     background:var(--glass); position:relative; overflow:hidden;
@@ -563,25 +499,12 @@
   }
   .service-card:hover { border-color:var(--border); background:var(--glass2); transform:translateY(-6px); }
   .service-card:hover::after { transform:scaleX(1); }
-  .service-icon {
-    font-size:2rem; margin-bottom:1.5rem;
-    filter:drop-shadow(0 0 8px var(--red-glow));
-  }
-  .service-num {
-    position:absolute; top:1.5rem; right:1.5rem;
-    font-family:'Bebas Neue',sans-serif; font-size:3rem; color:rgba(200,16,46,0.08);
-    line-height:1; letter-spacing:0.05em;
-  }
-  .service-name {
-    font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:600;
-    margin-bottom:0.8rem; color:var(--white);
-  }
+  .service-icon { font-size:2rem; margin-bottom:1.5rem; filter:drop-shadow(0 0 8px var(--red-glow)); }
+  .service-num { position:absolute; top:1.5rem; right:1.5rem; font-family:'Bebas Neue',sans-serif; font-size:3rem; color:rgba(200,16,46,0.08); line-height:1; letter-spacing:0.05em; }
+  .service-name { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:600; margin-bottom:0.8rem; color:var(--white); }
   .service-desc { font-size:0.68rem; color:var(--white3); line-height:1.9; }
   .service-tags { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.2rem; }
-  .service-tag {
-    font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase;
-    color:var(--red-bright); border:1px solid var(--border); padding:0.2rem 0.6rem;
-  }
+  .service-tag { font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--red-bright); border:1px solid var(--border); padding:0.2rem 0.6rem; }
 
   /* CONTACT */
   #contact { background:var(--black); }
@@ -589,15 +512,13 @@
   .contact-form { display:flex; flex-direction:column; gap:1rem; }
   .form-group { display:flex; flex-direction:column; gap:0.5rem; }
   .form-group label { font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--white3); }
-  .form-group input,
-  .form-group textarea {
+  .form-group input, .form-group textarea {
     background:var(--glass); border:1px solid var(--border2);
     color:var(--white); padding:0.9rem 1rem; font-family:'Space Mono',monospace;
     font-size:0.72rem; outline:none; resize:none;
     transition:border-color 0.3s, background 0.3s, box-shadow 0.3s;
   }
-  .form-group input:focus,
-  .form-group textarea:focus {
+  .form-group input:focus, .form-group textarea:focus {
     border-color:var(--red); background:var(--glass2);
     box-shadow:0 0 15px rgba(200,16,46,0.15);
   }
@@ -607,29 +528,19 @@
     color:var(--white); font-family:'Space Mono',monospace;
     font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase;
     cursor:none; transition:all 0.3s; align-self:flex-start;
-    box-shadow:0 0 25px var(--red-glow);
-    position:relative; overflow:hidden;
+    box-shadow:0 0 25px var(--red-glow); position:relative; overflow:hidden;
   }
   .form-submit:hover { background:var(--red-bright); box-shadow:0 0 40px rgba(255,26,60,0.5); transform:translateY(-2px); }
-  .form-success {
-    display:none; padding:1rem; background:var(--red-dim); border:1px solid var(--red);
-    font-size:0.7rem; color:var(--white2); letter-spacing:0.1em;
-  }
+  .form-success { display:none; padding:1rem; background:var(--red-dim); border:1px solid var(--red); font-size:0.7rem; color:var(--white2); letter-spacing:0.1em; }
   .contact-info { display:flex; flex-direction:column; gap:2rem; }
-  .contact-title {
-    font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300;
-    font-style:italic; color:var(--white2); line-height:1.5;
-  }
+  .contact-title { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; font-style:italic; color:var(--white2); line-height:1.5; }
   .social-links { display:flex; flex-direction:column; gap:0.8rem; }
   .social-link {
     display:flex; align-items:center; gap:1rem; padding:1rem 1.2rem;
     border:1px solid var(--border2); text-decoration:none; color:var(--white);
     transition:all 0.3s; cursor:none; background:var(--glass);
   }
-  .social-link:hover {
-    border-color:var(--red); background:var(--red-dim);
-    transform:translateX(6px); box-shadow:0 0 15px var(--red-glow);
-  }
+  .social-link:hover { border-color:var(--red); background:var(--red-dim); transform:translateX(6px); box-shadow:0 0 15px var(--red-glow); }
   .social-icon { font-size:1.2rem; width:24px; text-align:center; }
   .social-name { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; flex:1; }
   .social-arrow { font-size:0.8rem; color:var(--red-bright); opacity:0; transition:opacity 0.3s; }
@@ -645,23 +556,15 @@
     max-width:1300px; margin:0 auto; padding:2rem 4vw;
     display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
   }
-  .footer-logo {
-    font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:0.15em; color:var(--white);
-  }
+  .footer-logo { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:0.15em; color:var(--white); }
   .footer-logo span { color:var(--red-bright); }
   .footer-copy { font-size:0.6rem; letter-spacing:0.15em; color:var(--white3); }
   .footer-links { display:flex; gap:1.5rem; }
-  .footer-links a {
-    font-size:0.6rem; letter-spacing:0.15em; color:var(--white3); text-decoration:none;
-    transition:color 0.3s; cursor:none;
-  }
+  .footer-links a { font-size:0.6rem; letter-spacing:0.15em; color:var(--white3); text-decoration:none; transition:color 0.3s; cursor:none; }
   .footer-links a:hover { color:var(--red-bright); }
 
-  /* REVEAL ANIMATION */
-  .reveal {
-    opacity:0; transform:translateY(30px);
-    transition:opacity 0.8s ease, transform 0.8s cubic-bezier(.16,1,.3,1);
-  }
+  /* REVEAL */
+  .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.8s ease, transform 0.8s cubic-bezier(.16,1,.3,1); }
   .reveal.visible { opacity:1; transform:translateY(0); }
 
   /* MOBILE */
@@ -680,25 +583,22 @@
     .timeline-item { grid-template-columns:80px 20px 1fr; }
     .featured-card { height:350px; }
     .featured-controls { bottom:1.5rem; right:1.5rem; }
-    body { cursor: auto; }
+    body { cursor:auto; }
     #cursor, #cursor-trail { display:none; }
   }
 </style>
 </head>
 <body>
 
-<!-- Custom Cursor -->
 <div id="cursor"></div>
 <div id="cursor-trail"></div>
-
-<!-- Particles -->
 <canvas id="particles-canvas"></canvas>
 
 <!-- LOADER -->
 <div id="loader">
   <div class="loader-name">MR.<span>RIPIW</span></div>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-  <div class="loader-text">Loading Creative Universe...</div>
+  <div class="loader-text">Engineering Epic Visuals...</div>
 </div>
 
 <!-- NAVBAR -->
@@ -723,11 +623,11 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <p class="hero-tag">Creative Designer & Visual Artist</p>
+    <p class="hero-tag">Visual Engineer & Head Creative</p>
     <h1 class="hero-title">MR.RIPIW</h1>
-    <p class="hero-subtitle">Crafting Visual Experiences That Leave Marks</p>
+    <p class="hero-subtitle">"Engineering Epic Visuals for Bold Brands"</p>
     <div class="hero-line"></div>
-    <p class="hero-desc">Award-winning designer pushing boundaries of visual art, brand identity, and digital aesthetics — one pixel at a time.</p>
+    <p class="hero-desc">Not just another designer. I build high-end visual assets by combining the limitless imagination of AI with pixel-perfect Photoshop craftsmanship. Delivering super-epic aesthetics for future-forward brands.</p>
     <div class="hero-btns">
       <a href="#portfolio" class="btn-primary">View Portfolio</a>
       <a href="#contact" class="btn-outline">Contact Me</a>
@@ -750,7 +650,10 @@
           <div class="about-corner bl"></div>
           <div class="about-corner br"></div>
           <div class="about-img-inner">
-            <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+            <!-- Profile photo: rename your file to "Mrripiwfotoprofil.jpg" and place next to this HTML -->
+            <img src="Mrripiwfotoprofil.jpg" alt="MR.RIPIW"
+                 onerror="this.style.display='none'">
+            <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.15;pointer-events:none" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <radialGradient id="rg1" cx="50%" cy="30%">
                   <stop offset="0%" stop-color="#c8102e" stop-opacity="0.3"/>
@@ -758,19 +661,15 @@
                 </radialGradient>
               </defs>
               <rect width="300" height="400" fill="url(#rg1)"/>
-              <line x1="0" y1="0" x2="300" y2="400" stroke="#c8102e" stroke-width="0.3" stroke-opacity="0.2"/>
-              <line x1="300" y1="0" x2="0" y2="400" stroke="#c8102e" stroke-width="0.3" stroke-opacity="0.2"/>
               <circle cx="150" cy="150" r="80" stroke="#c8102e" stroke-width="0.5" fill="none" stroke-opacity="0.3"/>
-              <circle cx="150" cy="150" r="50" stroke="#ffffff" stroke-width="0.2" fill="none" stroke-opacity="0.1"/>
-              <!-- Stylized figure -->
               <ellipse cx="150" cy="120" rx="38" ry="42" fill="#1a1a2a" stroke="#c8102e" stroke-width="0.8" stroke-opacity="0.5"/>
               <ellipse cx="150" cy="280" rx="65" ry="90" fill="#141420" stroke="#c8102e" stroke-width="0.5" stroke-opacity="0.3"/>
             </svg>
             <div class="about-img-placeholder">MR</div>
           </div>
           <div class="about-badge">
-            <div class="about-badge-num">5+</div>
-            <div class="about-badge-text">Years Exp</div>
+            <div class="about-badge-num">8+</div>
+            <div class="about-badge-text">Industri Digital</div>
           </div>
         </div>
       </div>
@@ -780,14 +679,15 @@
           <h2 class="section-title">The <span class="accent">Vision</span><br>Behind The Art</h2>
         </div>
         <p class="about-bio">
-          I am <strong>MR.RIPIW</strong> — a creative designer and visual artist obsessed with
-          the intersection of <strong>luxury aesthetics</strong> and <strong>digital innovation</strong>.
-          Every project is a universe waiting to be designed.
+          <strong>MR.RIPIW</strong> — Visual Engineer & Head Creative.
+          Mengubah brief biasa menjadi aset visual <strong>high-end</strong> yang memikat audiens
+          dan menaikkan <strong>value brand</strong>.
         </p>
         <p class="about-desc">
-          Specializing in brand identity, cinematic visuals, AI art direction, and premium content creation.
-          I work with global brands and creators to craft visual languages that are impossible to ignore.
-          My studio produces work that lives at the cutting edge of design culture.
+          Di era di mana visual bergerak cepat, saya menawarkan efisiensi tanpa mengorbankan kualitas.
+          Sebagai Head Creative, saya memanfaatkan teknologi AI untuk memperluas batas eksplorasi,
+          lalu mengeksekusinya dengan sentuhan craftmanship Photoshop yang matang.
+          Hasilnya? Estetika premium yang siap bersaing di industri apa pun.
         </p>
         <div class="about-skills">
           <div class="skill-chip">Brand Identity</div>
@@ -822,8 +722,7 @@
       <button class="filter-btn" data-filter="social">Social Media</button>
       <button class="filter-btn" data-filter="video">Video Projects</button>
     </div>
-    <div class="portfolio-grid" id="portfolio-grid">
-    </div>
+    <div class="portfolio-grid" id="portfolio-grid"></div>
   </div>
 </section>
 
@@ -869,15 +768,15 @@
     </div>
     <div class="stats-grid reveal">
       <div class="stat-card">
-        <div class="stat-num" data-target="5">0</div>
+        <div class="stat-num" data-target="8">0</div>
         <div class="stat-label">Years of Experience</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num" data-target="120">0</div>
+        <div class="stat-num" data-target="239">0</div>
         <div class="stat-label">Projects Completed</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num" data-target="80">0</div>
+        <div class="stat-num" data-target="192">0</div>
         <div class="stat-label">Happy Clients</div>
       </div>
       <div class="stat-card">
@@ -892,30 +791,30 @@
     </div>
     <div class="timeline reveal">
       <div class="timeline-item">
-        <div class="tl-year">2024</div>
-        <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">
-          <div class="tl-role">Lead Creative Director</div>
-          <div class="tl-company">MR.RIPIW Studio — Independent</div>
-          <div class="tl-desc">Directing full-scale brand campaigns, AI-powered visual content, and premium design productions for international clients across social media and digital platforms.</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-year">2022</div>
-        <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">
-          <div class="tl-role">Senior Visual Designer</div>
-          <div class="tl-company">Freelance — Global Clients</div>
-          <div class="tl-desc">Delivered 60+ brand identity projects, thumbnail systems for YouTube creators, and high-converting product ads for e-commerce brands worldwide.</div>
-        </div>
-      </div>
-      <div class="timeline-item">
         <div class="tl-year">2020</div>
         <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
         <div class="tl-content">
-          <div class="tl-role">Graphic & Digital Designer</div>
-          <div class="tl-company">Creative Studio — Local Agency</div>
-          <div class="tl-desc">Started the creative journey designing brand collaterals, social media content, and poster art. Built the foundation for a cinematic and luxury design language.</div>
+          <div class="tl-role">Graphic Designer</div>
+          <div class="tl-company">Telekomunikasi Indonesia</div>
+          <div class="tl-desc">Menjadi Graphic Designer untuk produk digital TELKOM — membangun fondasi kuat dalam desain visual profesional di salah satu perusahaan telekomunikasi terbesar di Indonesia.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">2025</div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">Graphic Designer & Content Maker</div>
+          <div class="tl-company">YouTube + Instagram</div>
+          <div class="tl-desc">Mengelola media sosial seorang Youtuber Roblox dari 200 Subscribers menjadi 40.000 Subscribers dalam waktu hanya 2 bulan — membuktikan bahwa visual yang kuat adalah mesin pertumbuhan terbesar.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">2024–Now</div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-role">Head Creative & Graphic Designer</div>
+          <div class="tl-company">YouTube — Top Indonesian Creator</div>
+          <div class="tl-desc">Saat ini bekerja bersama salah satu Youtuber ternama di Indonesia, mengelola beberapa channel sekaligus termasuk project endorse dan music video — dari konsep visual hingga eksekusi final.</div>
         </div>
       </div>
     </div>
@@ -970,28 +869,28 @@
           Whether you're a brand, creator, or agency — let's build something unforgettable.
         </p>
         <div class="social-links">
-          <a href="https://instagram.com" target="_blank" class="social-link">
+          <a href="https://instagram.com/Mr.RipiwOfficiall" target="_blank" class="social-link">
             <span class="social-icon">📷</span>
             <span class="social-name">Instagram</span>
-            <span style="font-size:0.6rem;color:var(--white3);">@mr.ripiw</span>
+            <span style="font-size:0.6rem;color:var(--white3);">@Mr.RipiwOfficiall</span>
             <span class="social-arrow">→</span>
           </a>
-          <a href="https://tiktok.com" target="_blank" class="social-link">
+          <a href="https://tiktok.com/@mr.ripiwofficial" target="_blank" class="social-link">
             <span class="social-icon">🎵</span>
             <span class="social-name">TikTok</span>
-            <span style="font-size:0.6rem;color:var(--white3);">@mr.ripiw</span>
+            <span style="font-size:0.6rem;color:var(--white3);">@mr.ripiwofficial</span>
             <span class="social-arrow">→</span>
           </a>
-          <a href="https://wa.me/1234567890" target="_blank" class="social-link">
+          <a href="#contact" class="social-link">
             <span class="social-icon">💬</span>
             <span class="social-name">WhatsApp</span>
-            <span style="font-size:0.6rem;color:var(--white3);">Chat Directly</span>
+            <span style="font-size:0.6rem;color:var(--white3);">DM Only</span>
             <span class="social-arrow">→</span>
           </a>
-          <a href="mailto:hello@mrripiw.com" class="social-link">
+          <a href="#contact" class="social-link">
             <span class="social-icon">✉️</span>
             <span class="social-name">Email</span>
-            <span style="font-size:0.6rem;color:var(--white3);">hello@mrripiw.com</span>
+            <span style="font-size:0.6rem;color:var(--white3);">Coming Soon</span>
             <span class="social-arrow">→</span>
           </a>
         </div>
@@ -1018,81 +917,94 @@
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
 const portfolioItems = [
-  // ── THUMBNAIL ──────────────────────────────────────────────────────────────
-  // Ganti "assets/thumbnail-1.jpg" dengan nama file foto kamu yang sebenarnya
-  { id:1,  cat:'thumbnail', name:'Thumbnail 1', img:'assets/thumbnail-1.jpg', desc:'Deskripsi project thumbnail 1 kamu.', color:'#1a0a12', accent:'#c8102e' },
-  { id:2,  cat:'thumbnail', name:'Thumbnail 2', img:'assets/thumbnail-2.jpg', desc:'Deskripsi project thumbnail 2 kamu.', color:'#0a0a12', accent:'#ff4060' },
-  { id:3,  cat:'thumbnail', name:'Thumbnail 3', img:'assets/thumbnail-3.jpg', desc:'Deskripsi project thumbnail 3 kamu.', color:'#120a0a', accent:'#c8102e' },
+  // THUMBNAIL — aspect ratio: landscape (16:9)
+  { id:1,  cat:'thumbnail', name:'Project Thumbnail #1', img:'assets/thumbnail-1.jpg', ratio:'landscape', desc:'Thumbnail design high-impact untuk konten YouTube. CTR-optimized dengan komposisi sinematik.', color:'#1a0a12', accent:'#c8102e' },
+  { id:2,  cat:'thumbnail', name:'Project Thumbnail #2', img:'assets/thumbnail-2.jpg', ratio:'landscape', desc:'Thumbnail bold dengan tipografi ekspresif dan color grading dramatis.', color:'#0a0a12', accent:'#ff4060' },
+  { id:3,  cat:'thumbnail', name:'Project Thumbnail #3', img:'assets/thumbnail-3.jpg', ratio:'landscape', desc:'Visual storytelling dalam satu frame — setiap elemen dirancang untuk menarik perhatian.', color:'#120a0a', accent:'#c8102e' },
 
-  // ── POSTER ─────────────────────────────────────────────────────────────────
-  { id:4,  cat:'poster', name:'Poster 1', img:'assets/poster-1.jpg', desc:'Deskripsi project poster 1 kamu.', color:'#0a0a1a', accent:'#8b2be2' },
-  { id:5,  cat:'poster', name:'Poster 2', img:'assets/poster-2.jpg', desc:'Deskripsi project poster 2 kamu.', color:'#100a1a', accent:'#9b2be2' },
-  { id:6,  cat:'poster', name:'Poster 3', img:'assets/poster-3.jpg', desc:'Deskripsi project poster 3 kamu.', color:'#130a1a', accent:'#7b1be2' },
+  // POSTER — aspect ratio: portrait (3:4)
+  { id:4,  cat:'poster', name:'Project Poster #1', img:'assets/poster-1.jpg', ratio:'portrait', desc:'Poster sinematik dengan tata cahaya dramatis dan komposisi editorial premium.', color:'#0a0a1a', accent:'#8b2be2' },
+  { id:5,  cat:'poster', name:'Project Poster #2', img:'assets/poster-2.jpg', ratio:'portrait', desc:'Poster event dengan visual yang menggabungkan elemen digital dan analog secara elegan.', color:'#100a1a', accent:'#9b2be2' },
+  { id:6,  cat:'poster', name:'Project Poster #3', img:'assets/poster-3.jpg', ratio:'portrait', desc:'Desain poster yang memadukan tipografi bold dengan ilustrasi visual yang kuat.', color:'#130a1a', accent:'#7b1be2' },
 
-  // ── PRODUCT ADS ────────────────────────────────────────────────────────────
-  { id:7,  cat:'ads', name:'Product Ads 1', img:'assets/ads-1.jpg', desc:'Deskripsi project ads 1 kamu.', color:'#0a120a', accent:'#2ba060' },
-  { id:8,  cat:'ads', name:'Product Ads 2', img:'assets/ads-2.jpg', desc:'Deskripsi project ads 2 kamu.', color:'#0a1510', accent:'#3bb070' },
+  // PRODUCT ADS — aspect ratio: square (1:1)
+  { id:7,  cat:'ads', name:'Project Ads #1', img:'assets/ads-1.jpg', ratio:'square', desc:'Iklan produk dengan visual premium — membuat produk tampil lebih mewah dari harganya.', color:'#0a120a', accent:'#2ba060' },
+  { id:8,  cat:'ads', name:'Project Ads #2', img:'assets/ads-2.jpg', ratio:'square', desc:'Product ads berteknologi AI visual yang meningkatkan conversion rate secara signifikan.', color:'#0a1510', accent:'#3bb070' },
 
-  // ── AI VISUAL ART ──────────────────────────────────────────────────────────
-  { id:9,  cat:'ai', name:'AI Visual Art 1', img:'assets/ai-1.jpg', desc:'Deskripsi project AI art 1 kamu.', color:'#0f0a1a', accent:'#5b2be2' },
-  { id:10, cat:'ai', name:'AI Visual Art 2', img:'assets/ai-2.jpg', desc:'Deskripsi project AI art 2 kamu.', color:'#0a0f1a', accent:'#e22b8b' },
-  { id:11, cat:'ai', name:'AI Visual Art 3', img:'assets/ai-3.jpg', desc:'Deskripsi project AI art 3 kamu.', color:'#0a0a1f', accent:'#2b8be2' },
+  // AI VISUAL ART — aspect ratio: landscape
+  { id:9,  cat:'ai', name:'AI Visual Art #1', img:'assets/ai-1.jpg', ratio:'landscape', desc:'Karya AI art yang memadukan futuristic architecture dengan organic surrealism.', color:'#0f0a1a', accent:'#5b2be2' },
+  { id:10, cat:'ai', name:'AI Visual Art #2', img:'assets/ai-2.jpg', ratio:'landscape', desc:'Eksplorasi AI visual dengan mood sinematik dan palet warna yang memukau.', color:'#0a0f1a', accent:'#e22b8b' },
+  { id:11, cat:'ai', name:'AI Visual Art #3', img:'assets/ai-3.jpg', ratio:'portrait', desc:'Digital art eksklusif yang menggabungkan kekuatan AI dengan sentuhan artistik manual.', color:'#0a0a1f', accent:'#2b8be2' },
 
-  // ── LOGO ───────────────────────────────────────────────────────────────────
-  { id:12, cat:'logo', name:'Logo Design 1', img:'assets/logo-1.jpg', desc:'Deskripsi project logo 1 kamu.', color:'#1a0e0a', accent:'#e2812b' },
-  { id:13, cat:'logo', name:'Logo Design 2', img:'assets/logo-2.jpg', desc:'Deskripsi project logo 2 kamu.', color:'#14100a', accent:'#d4a017' },
+  // LOGO — aspect ratio: square
+  { id:12, cat:'logo', name:'Project Logo #1', img:'assets/logo-1.jpg', ratio:'square', desc:'Brand identity dengan logo yang mengkomunikasikan otoritas dan kepercayaan.', color:'#1a0e0a', accent:'#e2812b' },
+  { id:13, cat:'logo', name:'Project Logo #2', img:'assets/logo-2.jpg', ratio:'square', desc:'Logo desain minimalis yang timeless — sederhana namun berkarakter kuat.', color:'#14100a', accent:'#d4a017' },
 
-  // ── SOCIAL MEDIA ───────────────────────────────────────────────────────────
-  { id:14, cat:'social', name:'Social Media 1', img:'assets/social-1.jpg', desc:'Deskripsi project social media 1 kamu.', color:'#0a101a', accent:'#2b8be2' },
-  { id:15, cat:'social', name:'Social Media 2', img:'assets/social-2.jpg', desc:'Deskripsi project social media 2 kamu.', color:'#0a1410', accent:'#2be2a0' },
-  { id:16, cat:'social', name:'Social Media 3', img:'assets/social-3.jpg', desc:'Deskripsi project social media 3 kamu.', color:'#0a0f14', accent:'#2bb5e2' },
+  // SOCIAL MEDIA — aspect ratio: mixed
+  { id:14, cat:'social', name:'Project Social #1', img:'assets/social-1.jpg', ratio:'square', desc:'Feed Instagram yang kohesif dengan estetika brand yang konsisten dan eye-catching.', color:'#0a101a', accent:'#2b8be2' },
+  { id:15, cat:'social', name:'Project Social #2', img:'assets/social-2.jpg', ratio:'square', desc:'Konten sosial media yang dirancang untuk viral — visual pertama, pesan kedua.', color:'#0a1410', accent:'#2be2a0' },
+  { id:16, cat:'social', name:'Project Social #3', img:'assets/social-3.jpg', ratio:'portrait', desc:'Template sosial media premium yang meningkatkan brand recognition secara organik.', color:'#0a0f14', accent:'#2bb5e2' },
 
-  // ── VIDEO ──────────────────────────────────────────────────────────────────
-  { id:17, cat:'video', name:'Video Project 1', img:'assets/video-1.jpg', desc:'Deskripsi project video 1 kamu.', color:'#1a0a0a', accent:'#c8102e' },
-  { id:18, cat:'video', name:'Video Project 2', img:'assets/video-2.jpg', desc:'Deskripsi project video 2 kamu.', color:'#150a0a', accent:'#ff2040' },
+  // VIDEO — aspect ratio: landscape
+  { id:17, cat:'video', name:'Project Video #1', img:'assets/video-1.jpg', ratio:'landscape', desc:'Creative direction untuk brand film — dari konsep hingga visual akhir yang memukau.', color:'#1a0a0a', accent:'#c8102e' },
+  { id:18, cat:'video', name:'Project Video #2', img:'assets/video-2.jpg', ratio:'landscape', desc:'Direction video konten reels & short-form dengan ritme visual yang adiktif.', color:'#150a0a', accent:'#ff2040' },
 ];
 
 const featuredProjects = [
-  { num:'01', title:'VISUAL EMPIRE CAMPAIGN', desc:'A full 360° brand campaign for a premium lifestyle brand — spanning social, print, and digital activations with cinematic aesthetics.', color1:'#1a0a10', color2:'#2a0515' },
-  { num:'02', title:'AI ART COLLECTION VOL.1', desc:'A curated series of 20 AI-generated artworks blending futuristic architecture with organic surrealism, sold as exclusive digital prints.', color1:'#0a0a1a', color2:'#0f0520' },
-  { num:'03', title:'URBAN CREATOR THUMBNAIL SYSTEM', desc:'A signature thumbnail design system for a 1M+ subscriber YouTube channel — boosting average CTR from 4% to 11% within 60 days.', color1:'#0f0a0a', color2:'#200510' },
-  { num:'04', title:'LUXURY BRAND IDENTITY', desc:'Complete brand identity overhaul for a high-end consulting firm — new logo, typography system, photography direction and brand guidelines.', color1:'#0a0f0a', color2:'#051508' },
+  {
+    num: '01',
+    title: 'TELKOM DIGITAL — VISUAL CAMPAIGN',
+    desc: 'Mengerjakan aset visual untuk produk digital Telekomunikasi Indonesia. Merancang desain grafis yang merepresentasikan inovasi dan kepercayaan brand telekomunikasi terbesar di Indonesia.',
+    color1: '#0d0a1a', color2: '#1a0a12'
+  },
+  {
+    num: '02',
+    title: 'ROBLOX CREATOR — 200 TO 40K IN 60 DAYS',
+    desc: 'Mengelola total visual identity sebuah channel Roblox YouTube — dari thumbnail system, banner, hingga content strategy. Hasilnya: 200 subscribers menjadi 40.000 dalam 2 bulan flat.',
+    color1: '#0a0a1a', color2: '#0f0520'
+  },
+  {
+    num: '03',
+    title: 'YOUTUBE TERNAMA — HEAD CREATIVE',
+    desc: 'Saat ini menjabat sebagai Head Creative untuk salah satu Youtuber ternama di Indonesia. Menangani visual di multiple channel, project endorse brand besar, hingga music video production.',
+    color1: '#0f0a0a', color2: '#200510'
+  },
+  {
+    num: '04',
+    title: 'AI VISUAL COLLECTION — FUTURE AESTHETICS',
+    desc: 'Koleksi karya AI art eksklusif yang menggabungkan teknologi generative dengan craftsmanship Photoshop. Menciptakan estetika visual masa depan untuk brand yang berani tampil berbeda.',
+    color1: '#0a0f12', color2: '#051015'
+  },
 ];
 
 const services = [
   { icon:'🎨', num:'01', name:'Thumbnail Design', desc:'Scroll-stopping thumbnails engineered for maximum CTR. Data-driven design meeting cinematic visual art.', tags:['YouTube','Gaming','Lifestyle'] },
-  { icon:'🤖', num:'02', name:'AI Visual Art & Ads', desc:'Cutting-edge AI-powered advertisements and visual content that feel futuristic and convert at scale.', tags:['AI Art','Social Ads','Product'] },
-  { icon:'⚡', num:'03', name:'Brand Identity', desc:'Complete brand systems from logo to guidelines. I craft identities that communicate luxury and authority.', tags:['Logo','Typography','Guidelines'] },
-  { icon:'🎬', num:'04', name:'Poster Design', desc:'Cinematic print and digital posters with editorial-grade composition and premium finishing.', tags:['Print','Digital','Event'] },
-  { icon:'📱', num:'05', name:'Social Media Design', desc:'Cohesive content systems and templates that make your brand impossible to scroll past.', tags:['Instagram','TikTok','Content'] },
-  { icon:'🎥', num:'06', name:'Video Creative Direction', desc:'Full creative direction for brand films, reels, and video content — concept to final delivery.', tags:['Direction','Motion','Reels'] },
+  { icon:'🤖', num:'02', name:'AI Visual Art & Ads', desc:'Cutting-edge AI-powered advertisements dan visual content yang feel futuristic dan convert at scale.', tags:['AI Art','Social Ads','Product'] },
+  { icon:'⚡', num:'03', name:'Brand Identity', desc:'Complete brand systems from logo to guidelines. Identitas yang mengkomunikasikan luxury dan authority.', tags:['Logo','Typography','Guidelines'] },
+  { icon:'🎬', num:'04', name:'Poster Design', desc:'Cinematic print and digital posters dengan editorial-grade composition dan premium finishing.', tags:['Print','Digital','Event'] },
+  { icon:'📱', num:'05', name:'Social Media Design', desc:'Cohesive content systems dan templates yang membuat brand kamu impossible to scroll past.', tags:['Instagram','TikTok','Content'] },
+  { icon:'🎥', num:'06', name:'Video Creative Direction', desc:'Full creative direction untuk brand films, reels, dan video content — concept to final delivery.', tags:['Direction','Motion','Reels'] },
 ];
 
 // ─── RENDER PORTFOLIO ─────────────────────────────────────────────────────────
 function renderPortfolio() {
   const grid = document.getElementById('portfolio-grid');
   grid.innerHTML = portfolioItems.map(item => {
-    const imgTag = item.img
-      ? `<img src="${item.img}" alt="${item.name}"
-           style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1;"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-      : '';
-    const fallbackDisplay = item.img ? 'none' : 'flex';
     return `
-    <div class="port-item reveal" data-cat="${item.cat}" onclick="openModal(${item.id})">
+    <div class="port-item reveal" data-cat="${item.cat}" data-ratio="${item.ratio || 'landscape'}" onclick="openModal(${item.id})">
       <div class="port-img">
         <div class="port-img-inner" style="background:linear-gradient(135deg,${item.color},${item.accent}22)">
-          ${imgTag}
-          <span class="port-fallback" style="display:${fallbackDisplay};position:absolute;inset:0;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:3.5rem;letter-spacing:0.1em;color:rgba(255,255,255,0.07);">${item.name.substring(0,2).toUpperCase()}</span>
+          <img src="${item.img}" alt="${item.name}" onerror="this.style.display='none'">
           <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.07;pointer-events:none;z-index:2" viewBox="0 0 400 300">
             <defs><radialGradient id="rg${item.id}" cx="50%" cy="50%"><stop offset="0%" stop-color="${item.accent}"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
             <rect width="400" height="300" fill="url(#rg${item.id})"/>
           </svg>
+          <span style="position:relative;z-index:3;font-family:'Bebas Neue',sans-serif;font-size:3.5rem;letter-spacing:0.1em;color:rgba(255,255,255,0.07)">${item.name.substring(0,2).toUpperCase()}</span>
         </div>
         <div class="port-glow"></div>
       </div>
       <div class="port-overlay">
-        <div class="port-cat">${item.cat.replace(/^\w/, c => c.toUpperCase())}</div>
+        <div class="port-cat">${item.cat.charAt(0).toUpperCase()+item.cat.slice(1)}</div>
         <div class="port-name">${item.name}</div>
       </div>
       <div class="port-expand">⤢</div>
@@ -1103,17 +1015,12 @@ function renderPortfolio() {
 // ─── RENDER FEATURED ─────────────────────────────────────────────────────────
 function renderFeatured() {
   const track = document.getElementById('featured-track');
-  const dots = document.getElementById('feat-dots');
+  const dots  = document.getElementById('feat-dots');
   track.innerHTML = featuredProjects.map((p, i) => `
     <div class="featured-card">
-      <div class="featured-card-bg" style="background:linear-gradient(135deg,${p.color1},${p.color2},rgba(200,16,46,0.15))">
+      <div class="featured-card-bg" style="background:linear-gradient(135deg,${p.color1},${p.color2},rgba(200,16,46,0.12))">
         <svg style="width:100%;height:100%;opacity:0.15" viewBox="0 0 1200 500">
-          <defs>
-            <radialGradient id="fg${i}" cx="60%" cy="40%">
-              <stop offset="0%" stop-color="#c8102e" stop-opacity="0.8"/>
-              <stop offset="100%" stop-color="transparent"/>
-            </radialGradient>
-          </defs>
+          <defs><radialGradient id="fg${i}" cx="60%" cy="40%"><stop offset="0%" stop-color="#c8102e" stop-opacity="0.8"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
           <rect width="1200" height="500" fill="url(#fg${i})"/>
           ${Array.from({length:12},(_,j)=>`<line x1="${j*100}" y1="0" x2="${j*100+200}" y2="500" stroke="#c8102e" stroke-width="0.3" opacity="0.5"/>`).join('')}
           <circle cx="750" cy="250" r="200" stroke="#c8102e" stroke-width="0.5" fill="none"/>
@@ -1124,11 +1031,12 @@ function renderFeatured() {
         <div class="featured-num">${p.num} / 0${featuredProjects.length}</div>
         <div class="featured-title">${p.title}</div>
         <div class="featured-desc">${p.desc}</div>
-        <div class="featured-dots" style="pointer-events:none;margin-top:0"></div>
       </div>
     </div>
   `).join('');
-  dots.innerHTML = featuredProjects.map((_, i) => `<div class="feat-dot ${i===0?'active':''}" onclick="goFeatured(${i})"></div>`).join('');
+  dots.innerHTML = featuredProjects.map((_, i) =>
+    `<div class="feat-dot ${i===0?'active':''}" onclick="goFeatured(${i})"></div>`
+  ).join('');
 }
 
 // ─── RENDER SERVICES ─────────────────────────────────────────────────────────
@@ -1166,26 +1074,22 @@ function openModal(id) {
   const item = portfolioItems.find(p => p.id === id);
   if (!item) return;
   const modalImgEl = document.getElementById('modal-img');
+  modalImgEl.innerHTML = '';
   if (item.img) {
-    modalImgEl.style.position = 'relative';
-    modalImgEl.innerHTML = '<img src="' + item.img + '" alt="' + item.name + '" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1;" onerror="this.style.display=\'none\'">';
-  } else {
-    modalImgEl.innerHTML = `
-      <svg style="width:100%;height:100%;position:absolute;inset:0;opacity:0.3" viewBox="0 0 800 450">
-        <defs><radialGradient id="mrg" cx="50%" cy="50%"><stop offset="0%" stop-color="${item.accent}"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
-        <rect width="800" height="450" fill="url(#mrg)"/>
-        <circle cx="400" cy="225" r="150" stroke="${item.accent}" stroke-width="1" fill="none"/>
-      </svg>
-      <span style="position:relative;z-index:1">${item.name.substring(0,2).toUpperCase()}</span>`;
+    const img = document.createElement('img');
+    img.src = item.img; img.alt = item.name;
+    img.onerror = function(){ this.style.display='none'; };
+    modalImgEl.appendChild(img);
   }
-  document.getElementById('modal-cat').textContent = item.cat.replace(/^\w/, c => c.toUpperCase()) + ' Design';
+  modalImgEl.innerHTML += `<span style="position:relative;z-index:0">${item.name.substring(0,2).toUpperCase()}</span>`;
+  document.getElementById('modal-cat').textContent = item.cat.charAt(0).toUpperCase()+item.cat.slice(1)+' Design';
   document.getElementById('modal-title').textContent = item.name;
   document.getElementById('modal-desc').textContent = item.desc;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 document.getElementById('modal-close').onclick = closeModal;
-document.getElementById('modal').addEventListener('click', e => { if (e.target === document.getElementById('modal')) closeModal(); });
+document.getElementById('modal').addEventListener('click', e => { if(e.target===document.getElementById('modal')) closeModal(); });
 function closeModal() {
   document.getElementById('modal').classList.remove('open');
   document.body.style.overflow = '';
@@ -1198,14 +1102,14 @@ function goFeatured(i) {
   document.getElementById('featured-track').style.transform = `translateX(-${i*100}%)`;
   document.querySelectorAll('.feat-dot').forEach((d,j) => d.classList.toggle('active', j===i));
 }
-document.getElementById('feat-prev').onclick = () => goFeatured((featIdx - 1 + featuredProjects.length) % featuredProjects.length);
-document.getElementById('feat-next').onclick = () => goFeatured((featIdx + 1) % featuredProjects.length);
-setInterval(() => goFeatured((featIdx + 1) % featuredProjects.length), 5000);
+document.getElementById('feat-prev').onclick = () => goFeatured((featIdx-1+featuredProjects.length)%featuredProjects.length);
+document.getElementById('feat-next').onclick = () => goFeatured((featIdx+1)%featuredProjects.length);
+setInterval(() => goFeatured((featIdx+1)%featuredProjects.length), 5500);
 
 // ─── STATS COUNTER ────────────────────────────────────────────────────────────
 function animateCounter(el) {
   const target = +el.dataset.target;
-  const suffix = target >= 100 ? '+' : target >= 5 ? '+' : '+';
+  const suffix = '+';
   let current = 0;
   const step = target / 60;
   const timer = setInterval(() => {
@@ -1220,7 +1124,6 @@ const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Stats counter
       entry.target.querySelectorAll('[data-target]').forEach(animateCounter);
     }
   });
@@ -1241,67 +1144,64 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 
 // ─── CUSTOM CURSOR ────────────────────────────────────────────────────────────
 const cursor = document.getElementById('cursor');
-const trail = document.getElementById('cursor-trail');
+const trail  = document.getElementById('cursor-trail');
 let mx = 0, my = 0, tx = 0, ty = 0;
 document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 function animCursor() {
-  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-  tx += (mx - tx) * 0.15; ty += (my - ty) * 0.15;
-  trail.style.left = tx + 'px'; trail.style.top = ty + 'px';
+  cursor.style.left = mx+'px'; cursor.style.top = my+'px';
+  tx += (mx-tx)*0.15; ty += (my-ty)*0.15;
+  trail.style.left = tx+'px'; trail.style.top = ty+'px';
   requestAnimationFrame(animCursor);
 }
 animCursor();
-document.querySelectorAll('a, button, [onclick], .port-item, .filter-btn, .fc-btn, .social-link, .feat-dot').forEach(el => {
+document.querySelectorAll('a,button,[onclick],.port-item,.filter-btn,.fc-btn,.social-link,.feat-dot').forEach(el => {
   el.addEventListener('mouseenter', () => {
-    cursor.style.width = '20px'; cursor.style.height = '20px';
-    trail.style.width = '50px'; trail.style.height = '50px'; trail.style.opacity = '0.8';
+    cursor.style.width='20px'; cursor.style.height='20px';
+    trail.style.width='50px'; trail.style.height='50px'; trail.style.opacity='0.8';
   });
   el.addEventListener('mouseleave', () => {
-    cursor.style.width = '12px'; cursor.style.height = '12px';
-    trail.style.width = '36px'; trail.style.height = '36px'; trail.style.opacity = '0.5';
+    cursor.style.width='12px'; cursor.style.height='12px';
+    trail.style.width='36px'; trail.style.height='36px'; trail.style.opacity='0.5';
   });
 });
 
 // ─── PARTICLES ────────────────────────────────────────────────────────────────
-(function() {
+(function(){
   const canvas = document.getElementById('particles-canvas');
   const ctx = canvas.getContext('2d');
   let W, H, particles = [];
-  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   window.addEventListener('resize', resize); resize();
-  for (let i = 0; i < 60; i++) {
+  for(let i=0;i<60;i++){
     particles.push({
-      x: Math.random()*1920, y: Math.random()*1080,
-      vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4,
-      size: Math.random()*1.5+0.3,
-      opacity: Math.random()*0.5+0.1,
-      isRed: Math.random() > 0.7
+      x:Math.random()*1920, y:Math.random()*1080,
+      vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4,
+      size:Math.random()*1.5+0.3,
+      opacity:Math.random()*0.5+0.1,
+      isRed:Math.random()>0.7
     });
   }
-  function draw() {
+  function draw(){
     ctx.clearRect(0,0,W,H);
-    particles.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
-      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+    particles.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
       ctx.beginPath();
-      ctx.arc(p.x % W, p.y % H, p.size, 0, Math.PI*2);
-      ctx.fillStyle = p.isRed ? `rgba(200,16,46,${p.opacity})` : `rgba(240,236,232,${p.opacity*0.5})`;
+      ctx.arc(p.x%W,p.y%H,p.size,0,Math.PI*2);
+      ctx.fillStyle=p.isRed?`rgba(200,16,46,${p.opacity})`:`rgba(240,236,232,${p.opacity*0.5})`;
       ctx.fill();
     });
-    // Draw connections
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i+1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx*dx+dy*dy);
-        if (dist < 150) {
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<150){
           ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(200,16,46,${0.04*(1-dist/150)})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
+          ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle=`rgba(200,16,46,${0.04*(1-dist/150)})`;
+          ctx.lineWidth=0.5; ctx.stroke();
         }
       }
     }
@@ -1311,20 +1211,18 @@ document.querySelectorAll('a, button, [onclick], .port-item, .filter-btn, .fc-bt
 })();
 
 // ─── CONTACT FORM ─────────────────────────────────────────────────────────────
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+document.getElementById('contact-form').addEventListener('submit', function(e){
   e.preventDefault();
   const btn = document.getElementById('form-submit');
   const success = document.getElementById('form-success');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.style.display = 'none';
-    success.style.display = 'block';
-    document.getElementById('form-name').value = '';
-    document.getElementById('form-email').value = '';
-    document.getElementById('form-service').value = '';
-    document.getElementById('form-msg').value = '';
-  }, 1500);
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  setTimeout(()=>{
+    btn.style.display='none'; success.style.display='block';
+    document.getElementById('form-name').value='';
+    document.getElementById('form-email').value='';
+    document.getElementById('form-service').value='';
+    document.getElementById('form-msg').value='';
+  },1500);
 });
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
@@ -1332,18 +1230,15 @@ renderPortfolio();
 renderFeatured();
 renderServices();
 
-// Reveal observer — must run after render
-setTimeout(() => {
+setTimeout(()=>{
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-}, 100);
+},100);
 
-// Loader
-setTimeout(() => {
+setTimeout(()=>{
   document.getElementById('loader').classList.add('hide');
-}, 2600);
+},2600);
 
-// Keyboard close modal
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 </script>
 </body>
 </html>
