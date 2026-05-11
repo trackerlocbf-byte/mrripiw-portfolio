@@ -274,7 +274,6 @@
     background: linear-gradient(135deg, var(--dark2) 0%, var(--dark3) 50%, rgba(200,16,46,0.08) 100%);
     display:flex; align-items:center; justify-content:center; overflow:hidden;
   }
-  /* Profile photo support */
   .about-img-inner img {
     width: 100%; height: 100%; object-fit: cover; object-position: center top;
     position: absolute; inset: 0; z-index: 2;
@@ -337,7 +336,6 @@
     transition:transform 0.4s cubic-bezier(.16,1,.3,1);
     border:1px solid var(--border2);
   }
-  /* Mixed aspect ratios */
   .port-item[data-ratio="landscape"] { aspect-ratio: 16/9; }
   .port-item[data-ratio="portrait"]  { aspect-ratio: 3/4; }
   .port-item[data-ratio="square"]    { aspect-ratio: 1/1; }
@@ -655,8 +653,8 @@
           <div class="about-corner bl"></div>
           <div class="about-corner br"></div>
           <div class="about-img-inner">
-            <!-- Profile photo: rename your file to "Mrripiwfotoprofil.jpg" and place next to this HTML -->
-            <img src="Mrripiwfotoprofil.jpg" alt="MR.RIPIW"
+            <!-- FIX: path updated to assets/Mrripiwfotoprofil.jpg -->
+            <img src="assets/Mrripiwfotoprofil.jpg" alt="MR.RIPIW"
                  onerror="this.style.display='none'">
             <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.15;pointer-events:none" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -909,7 +907,7 @@
   <div class="footer-glow"></div>
   <div class="footer-inner">
     <div class="footer-logo">MR.<span>RIPIW</span></div>
-    <div class="footer-copy">© 2025 MR.RIPIW. All rights reserved.</div>
+    <div class="footer-copy">© 2026 MR.RIPIW. All rights reserved.</div>
     <div class="footer-links">
       <a href="#hero">Home</a>
       <a href="#portfolio">Work</a>
