@@ -426,11 +426,22 @@
     min-width:100%; position:relative; height:500px;
     display:flex; align-items:flex-end; overflow:hidden;
   }
-  .featured-card-bg { position:absolute; inset:0; transition:transform 6s ease; }
+  .featured-card-bg {
+    position:absolute; inset:0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition:transform 6s ease;
+  }
   .featured-card:hover .featured-card-bg { transform:scale(1.04); }
+  /* fallback SVG layer — hidden when image loads */
+  .featured-card-bg .feat-svg-fallback {
+    position:absolute; inset:0; width:100%; height:100%;
+    pointer-events:none;
+  }
   .featured-card-content {
     position:relative; z-index:2; padding:3rem; width:100%;
-    background:linear-gradient(to top, rgba(5,5,7,0.98) 0%, rgba(5,5,7,0.6) 50%, transparent 100%);
+    background:linear-gradient(to top, rgba(5,5,7,0.98) 0%, rgba(5,5,7,0.55) 50%, transparent 100%);
   }
   .featured-num { font-family:'Bebas Neue',sans-serif; font-size:0.8rem; letter-spacing:0.3em; color:var(--red-bright); margin-bottom:0.5rem; }
   .featured-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,5vw,3.5rem); letter-spacing:0.06em; line-height:0.9; margin-bottom:1rem; color:var(--white); }
@@ -653,7 +664,6 @@
           <div class="about-corner bl"></div>
           <div class="about-corner br"></div>
           <div class="about-img-inner">
-            <!-- FIX: path updated to assets/Mrripiwfotoprofil.jpg -->
             <img src="assets/Mrripiwfotoprofil.jpg" alt="MR.RIPIW"
                  onerror="this.style.display='none'">
             <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.15;pointer-events:none" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
@@ -953,29 +963,39 @@ const portfolioItems = [
   { id:18, cat:'video', name:'Project Video #2', img:'assets/video-2.jpg', ratio:'landscape', desc:'Direction video konten reels & short-form dengan ritme visual yang adiktif.', color:'#150a0a', accent:'#ff2040' },
 ];
 
+// ─────────────────────────────────────────────────────────────────────────────
+// FEATURED PROJECTS
+// Ukuran gambar yang disarankan: 1920 x 500 px (landscape)
+// Nama file: assets/featured-1.jpg, featured-2.jpg, featured-3.jpg, featured-4.jpg
+// Taruh di folder assets/ bersama file gambar lainnya
+// ─────────────────────────────────────────────────────────────────────────────
 const featuredProjects = [
   {
     num: '01',
     title: 'TELKOM DIGITAL — VISUAL CAMPAIGN',
     desc: 'Mengerjakan aset visual untuk produk digital Telekomunikasi Indonesia. Merancang desain grafis yang merepresentasikan inovasi dan kepercayaan brand telekomunikasi terbesar di Indonesia.',
+    img: 'assets/featured-1.jpg',
     color1: '#0d0a1a', color2: '#1a0a12'
   },
   {
     num: '02',
     title: 'ROBLOX CREATOR — 200 TO 40K IN 60 DAYS',
     desc: 'Mengelola total visual identity sebuah channel Roblox YouTube — dari thumbnail system, banner, hingga content strategy. Hasilnya: 200 subscribers menjadi 40.000 dalam 2 bulan flat.',
+    img: 'assets/featured-2.jpg',
     color1: '#0a0a1a', color2: '#0f0520'
   },
   {
     num: '03',
     title: 'YOUTUBE TERNAMA — HEAD CREATIVE',
     desc: 'Saat ini menjabat sebagai Head Creative untuk salah satu Youtuber ternama di Indonesia. Menangani visual di multiple channel, project endorse brand besar, hingga music video production.',
+    img: 'assets/featured-3.jpg',
     color1: '#0f0a0a', color2: '#200510'
   },
   {
     num: '04',
     title: 'AI VISUAL COLLECTION — FUTURE AESTHETICS',
     desc: 'Koleksi karya AI art eksklusif yang menggabungkan teknologi generative dengan craftsmanship Photoshop. Menciptakan estetika visual masa depan untuk brand yang berani tampil berbeda.',
+    img: 'assets/featured-4.jpg',
     color1: '#0a0f12', color2: '#051015'
   },
 ];
@@ -1019,15 +1039,28 @@ function renderPortfolio() {
 function renderFeatured() {
   const track = document.getElementById('featured-track');
   const dots  = document.getElementById('feat-dots');
-  track.innerHTML = featuredProjects.map((p, i) => `
+
+  track.innerHTML = featuredProjects.map((p, i) => {
+    // Build inline style: if img exists → use as bg-image, else fallback gradient
+    const bgStyle = p.img
+      ? `background-image:url('${p.img}');background-size:cover;background-position:center;background-repeat:no-repeat;`
+      : `background:linear-gradient(135deg,${p.color1},${p.color2},rgba(200,16,46,0.12));`;
+
+    // SVG pattern always shown underneath (adds cinematic texture even on photos)
+    return `
     <div class="featured-card">
-      <div class="featured-card-bg" style="background:linear-gradient(135deg,${p.color1},${p.color2},rgba(200,16,46,0.12))">
-        <svg style="width:100%;height:100%;opacity:0.15" viewBox="0 0 1200 500">
-          <defs><radialGradient id="fg${i}" cx="60%" cy="40%"><stop offset="0%" stop-color="#c8102e" stop-opacity="0.8"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
+      <div class="featured-card-bg" style="${bgStyle}">
+        <!-- subtle red overlay texture — always present, blends with photo -->
+        <svg class="feat-svg-fallback" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="fg${i}" cx="65%" cy="40%">
+              <stop offset="0%" stop-color="#c8102e" stop-opacity="${p.img ? '0.15' : '0.7'}"/>
+              <stop offset="100%" stop-color="transparent"/>
+            </radialGradient>
+          </defs>
           <rect width="1200" height="500" fill="url(#fg${i})"/>
-          ${Array.from({length:12},(_,j)=>`<line x1="${j*100}" y1="0" x2="${j*100+200}" y2="500" stroke="#c8102e" stroke-width="0.3" opacity="0.5"/>`).join('')}
-          <circle cx="750" cy="250" r="200" stroke="#c8102e" stroke-width="0.5" fill="none"/>
-          <circle cx="750" cy="250" r="130" stroke="#ffffff" stroke-width="0.2" fill="none"/>
+          ${p.img ? '' : Array.from({length:12},(_,j)=>`<line x1="${j*100}" y1="0" x2="${j*100+200}" y2="500" stroke="#c8102e" stroke-width="0.3" opacity="0.4"/>`).join('')}
+          ${p.img ? '' : `<circle cx="750" cy="250" r="200" stroke="#c8102e" stroke-width="0.5" fill="none"/><circle cx="750" cy="250" r="130" stroke="#ffffff" stroke-width="0.2" fill="none"/>`}
         </svg>
       </div>
       <div class="featured-card-content">
@@ -1035,8 +1068,9 @@ function renderFeatured() {
         <div class="featured-title">${p.title}</div>
         <div class="featured-desc">${p.desc}</div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
+
   dots.innerHTML = featuredProjects.map((_, i) =>
     `<div class="feat-dot ${i===0?'active':''}" onclick="goFeatured(${i})"></div>`
   ).join('');
