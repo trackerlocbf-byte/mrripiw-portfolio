@@ -312,7 +312,7 @@
   }
   .skill-chip:hover { border-color:var(--red-bright); background:var(--red); color:var(--white); box-shadow:0 0 15px var(--red-glow); }
 
-  /* PORTFOLIO */
+  /* ─── PORTFOLIO ─────────────────────────────────────────────────────────── */
   #portfolio { background: var(--black); }
   .filter-bar { display:flex; flex-wrap:wrap; gap:0.5rem; margin:2.5rem 0; }
   .filter-btn {
@@ -325,60 +325,92 @@
     border-color:var(--red); color:var(--white); background:var(--red-dim);
     box-shadow:0 0 12px var(--red-glow);
   }
+
+  /* Masonry-style grid — columns based, images show full natural height */
   .portfolio-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap:1.5rem; margin-top:1rem;
+    column-count: 3;
+    column-gap: 1.2rem;
+    margin-top: 1rem;
   }
+  @media (max-width: 900px) { .portfolio-grid { column-count: 2; } }
+  @media (max-width: 540px) { .portfolio-grid { column-count: 1; } }
+
   .port-item {
-    position:relative; overflow:hidden;
-    background:var(--dark2); cursor:none;
-    transition:transform 0.4s cubic-bezier(.16,1,.3,1);
-    border:1px solid var(--border2);
+    break-inside: avoid;
+    position: relative;
+    overflow: hidden;
+    background: var(--dark2);
+    cursor: none;
+    border: 1px solid var(--border2);
+    margin-bottom: 1.2rem;
+    display: block;
+    transition: transform 0.4s cubic-bezier(.16,1,.3,1), border-color 0.3s;
   }
-  .port-item[data-ratio="landscape"] { aspect-ratio: 16/9; }
-  .port-item[data-ratio="portrait"]  { aspect-ratio: 3/4; }
-  .port-item[data-ratio="square"]    { aspect-ratio: 1/1; }
-  .port-item:hover { transform:scale(1.02); }
+  .port-item:hover {
+    transform: scale(1.02);
+    border-color: var(--border);
+  }
+
+  /* Image wrapper — height follows image naturally */
   .port-img {
-    width:100%; height:100%;
+    position: relative;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+  }
+  .port-img img {
+    display: block;
+    width: 100%;
+    height: auto;        /* ← KEY FIX: natural height, no cropping */
+    position: relative;
+    z-index: 1;
+    transition: transform 0.6s ease;
+  }
+  .port-item:hover .port-img img { transform: scale(1.04); }
+
+  /* Fallback placeholder when image fails to load */
+  .port-img-placeholder {
+    display: none; /* shown via JS onerror */
+    width: 100%;
+    padding: 3rem 1rem;
     background: linear-gradient(135deg, var(--dark2), var(--dark3));
-    position:relative; overflow:hidden; transition:transform 0.6s ease;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.06);
+    text-align: center;
   }
-  .port-item:hover .port-img { transform:scale(1.08); }
-  .port-img-inner {
-    width:100%; height:100%; display:flex; align-items:center; justify-content:center;
-    font-family:'Bebas Neue',sans-serif; font-size:4rem; letter-spacing:0.1em;
-    color:rgba(255,255,255,0.05); position:relative; overflow:hidden;
-  }
-  .port-img-inner img {
-    position:absolute; inset:0; width:100%; height:100%;
-    object-fit:cover; z-index:1;
-  }
+  .port-img-placeholder.show { display: flex; }
+
   .port-glow {
-    position:absolute; bottom:0; left:50%; transform:translateX(-50%);
-    width:60%; height:1px; background:var(--red-bright);
-    box-shadow:0 0 20px var(--red-glow), 0 0 60px rgba(200,16,46,0.3);
-    opacity:0; transition:opacity 0.4s;
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 60%; height: 1px; background: var(--red-bright);
+    box-shadow: 0 0 20px var(--red-glow), 0 0 60px rgba(200,16,46,0.3);
+    opacity: 0; transition: opacity 0.4s; z-index: 2;
   }
-  .port-item:hover .port-glow { opacity:1; }
+  .port-item:hover .port-glow { opacity: 1; }
+
+  /* Overlay sits on top of image using absolute positioning */
   .port-overlay {
-    position:absolute; inset:0;
-    background:linear-gradient(to top, rgba(5,5,7,0.95) 0%, rgba(5,5,7,0.4) 50%, transparent 100%);
-    opacity:0; transition:opacity 0.4s; display:flex; flex-direction:column;
-    justify-content:flex-end; padding:1.5rem;
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(5,5,7,0.95) 0%, rgba(5,5,7,0.3) 45%, transparent 100%);
+    opacity: 0; transition: opacity 0.4s; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 1.2rem;
+    z-index: 3;
   }
-  .port-item:hover .port-overlay { opacity:1; }
-  .port-cat { font-size:0.55rem; letter-spacing:0.3em; color:var(--red-bright); text-transform:uppercase; margin-bottom:0.4rem; }
-  .port-name { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:600; color:var(--white); line-height:1.2; }
+  .port-item:hover .port-overlay { opacity: 1; }
+  .port-cat { font-size: 0.55rem; letter-spacing: 0.3em; color: var(--red-bright); text-transform: uppercase; margin-bottom: 0.3rem; }
+  .port-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--white); line-height: 1.2; }
   .port-expand {
-    position:absolute; top:1rem; right:1rem;
-    width:36px; height:36px; border:1px solid var(--white3);
-    display:flex; align-items:center; justify-content:center;
-    font-size:1rem; color:var(--white); background:rgba(5,5,7,0.6);
-    opacity:0; transition:all 0.3s; cursor:none;
+    position: absolute; top: 0.8rem; right: 0.8rem;
+    width: 32px; height: 32px; border: 1px solid var(--white3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; color: var(--white); background: rgba(5,5,7,0.6);
+    opacity: 0; transition: all 0.3s; cursor: none; z-index: 4;
   }
-  .port-item:hover .port-expand { opacity:1; border-color:var(--red); color:var(--red-bright); }
+  .port-item:hover .port-expand { opacity: 1; border-color: var(--red); color: var(--red-bright); }
 
   /* MODAL */
   #modal {
@@ -434,7 +466,6 @@
     transition:transform 6s ease;
   }
   .featured-card:hover .featured-card-bg { transform:scale(1.04); }
-  /* fallback SVG layer — hidden when image loads */
   .featured-card-bg .feat-svg-fallback {
     position:absolute; inset:0; width:100%; height:100%;
     pointer-events:none;
@@ -930,49 +961,37 @@
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
 const portfolioItems = [
-  // THUMBNAIL — aspect ratio: landscape (16:9)
-  { id:1,  cat:'thumbnail', name:'Project Thumbnail #1', img:'assets/thumbnail-1.jpg', ratio:'landscape', desc:'Thumbnail design high-impact untuk konten YouTube. CTR-optimized dengan komposisi sinematik.', color:'#1a0a12', accent:'#c8102e' },
-  { id:2,  cat:'thumbnail', name:'Project Thumbnail #2', img:'assets/thumbnail-2.jpg', ratio:'landscape', desc:'Thumbnail bold dengan tipografi ekspresif dan color grading dramatis.', color:'#0a0a12', accent:'#ff4060' },
-  { id:3,  cat:'thumbnail', name:'Project Thumbnail #3', img:'assets/thumbnail-3.jpg', ratio:'landscape', desc:'Visual storytelling dalam satu frame — setiap elemen dirancang untuk menarik perhatian.', color:'#120a0a', accent:'#c8102e' },
-  { id:3,  cat:'thumbnail', name:'Project Thumbnail #4', img:'assets/thumbnail-4.jpg', ratio:'landscape', desc:'Visual storytelling dalam satu frame — setiap elemen dirancang untuk menarik perhatian.', color:'#120a0a', accent:'#c8102e' },
-  { id:3,  cat:'thumbnail', name:'Project Thumbnail #5', img:'assets/thumbnail-5.jpg', ratio:'landscape', desc:'Visual storytelling dalam satu frame — setiap elemen dirancang untuk menarik perhatian.', color:'#120a0a', accent:'#c8102e' },
-  { id:3,  cat:'thumbnail', name:'Project Thumbnail #6', img:'assets/thumbnail-6.jpg', ratio:'landscape', desc:'Visual storytelling dalam satu frame — setiap elemen dirancang untuk menarik perhatian.', color:'#120a0a', accent:'#c8102e' },
-  { id:3,  cat:'thumbnail', name:'Project Thumbnail #7', img:'assets/thumbnail-7.jpg', ratio:'landscape', desc:'Visual storytelling dalam satu frame — setiap elemen dirancang untuk menarik perhatian.', color:'#120a0a', accent:'#c8102e' },
-
-  // POSTER — aspect ratio: portrait (3:4)
-  { id:4,  cat:'poster', name:'Project Poster #1', img:'assets/poster-1.jpg', ratio:'portrait', desc:'Poster sinematik dengan tata cahaya dramatis dan komposisi editorial premium.', color:'#0a0a1a', accent:'#8b2be2' },
-  { id:5,  cat:'poster', name:'Project Poster #2', img:'assets/poster-2.jpg', ratio:'portrait', desc:'Poster event dengan visual yang menggabungkan elemen digital dan analog secara elegan.', color:'#100a1a', accent:'#9b2be2' },
-  { id:6,  cat:'poster', name:'Project Poster #3', img:'assets/poster-3.jpg', ratio:'portrait', desc:'Desain poster yang memadukan tipografi bold dengan ilustrasi visual yang kuat.', color:'#130a1a', accent:'#7b1be2' },
-
-  // PRODUCT ADS — aspect ratio: square (1:1)
-  { id:7,  cat:'ads', name:'Project Ads #1', img:'assets/ads-1.jpg', ratio:'square', desc:'Iklan produk dengan visual premium — membuat produk tampil lebih mewah dari harganya.', color:'#0a120a', accent:'#2ba060' },
-  { id:8,  cat:'ads', name:'Project Ads #2', img:'assets/ads-2.jpg', ratio:'square', desc:'Product ads berteknologi AI visual yang meningkatkan conversion rate secara signifikan.', color:'#0a1510', accent:'#3bb070' },
-
-  // AI VISUAL ART — aspect ratio: landscape
-  { id:9,  cat:'ai', name:'AI Visual Art #1', img:'assets/ai-1.jpg', ratio:'landscape', desc:'Karya AI art yang memadukan futuristic architecture dengan organic surrealism.', color:'#0f0a1a', accent:'#5b2be2' },
-  { id:10, cat:'ai', name:'AI Visual Art #2', img:'assets/ai-2.jpg', ratio:'landscape', desc:'Eksplorasi AI visual dengan mood sinematik dan palet warna yang memukau.', color:'#0a0f1a', accent:'#e22b8b' },
-  { id:11, cat:'ai', name:'AI Visual Art #3', img:'assets/ai-3.jpg', ratio:'portrait', desc:'Digital art eksklusif yang menggabungkan kekuatan AI dengan sentuhan artistik manual.', color:'#0a0a1f', accent:'#2b8be2' },
-
-  // LOGO — aspect ratio: square
-  { id:12, cat:'logo', name:'Project Logo #1', img:'assets/logo-1.jpg', ratio:'square', desc:'Brand identity dengan logo yang mengkomunikasikan otoritas dan kepercayaan.', color:'#1a0e0a', accent:'#e2812b' },
-  { id:13, cat:'logo', name:'Project Logo #2', img:'assets/logo-2.jpg', ratio:'square', desc:'Logo desain minimalis yang timeless — sederhana namun berkarakter kuat.', color:'#14100a', accent:'#d4a017' },
-
-  // SOCIAL MEDIA — aspect ratio: mixed
-  { id:14, cat:'social', name:'Project Social #1', img:'assets/social-1.jpg', ratio:'square', desc:'Feed Instagram yang kohesif dengan estetika brand yang konsisten dan eye-catching.', color:'#0a101a', accent:'#2b8be2' },
-  { id:15, cat:'social', name:'Project Social #2', img:'assets/social-2.jpg', ratio:'square', desc:'Konten sosial media yang dirancang untuk viral — visual pertama, pesan kedua.', color:'#0a1410', accent:'#2be2a0' },
-  { id:16, cat:'social', name:'Project Social #3', img:'assets/social-3.jpg', ratio:'portrait', desc:'Template sosial media premium yang meningkatkan brand recognition secara organik.', color:'#0a0f14', accent:'#2bb5e2' },
-
-  // VIDEO — aspect ratio: landscape
-  { id:17, cat:'video', name:'Project Video #1', img:'assets/video-1.jpg', ratio:'landscape', desc:'Creative direction untuk brand film — dari konsep hingga visual akhir yang memukau.', color:'#1a0a0a', accent:'#c8102e' },
-  { id:18, cat:'video', name:'Project Video #2', img:'assets/video-2.jpg', ratio:'landscape', desc:'Direction video konten reels & short-form dengan ritme visual yang adiktif.', color:'#150a0a', accent:'#ff2040' },
+  // THUMBNAIL
+  { id:1,  cat:'thumbnail', name:'Project Thumbnail #1', img:'assets/thumbnail-1.jpg', desc:'Thumbnail design high-impact untuk konten YouTube. CTR-optimized dengan komposisi sinematik.', color:'#1a0a12', accent:'#c8102e' },
+  { id:2,  cat:'thumbnail', name:'Project Thumbnail #2', img:'assets/thumbnail-2.jpg', desc:'Thumbnail bold dengan tipografi ekspresif dan color grading dramatis.', color:'#0a0a12', accent:'#ff4060' },
+  { id:3,  cat:'thumbnail', name:'Project Thumbnail #3', img:'assets/thumbnail-3.jpg', desc:'Visual storytelling dalam satu frame — setiap elemen dirancang untuk menarik perhatian.', color:'#120a0a', accent:'#c8102e' },
+  { id:4,  cat:'thumbnail', name:'Project Thumbnail #4', img:'assets/thumbnail-4.jpg', desc:'Visual storytelling dalam satu frame — setiap elemen dirancang untuk menarik perhatian.', color:'#120a0a', accent:'#c8102e' },
+  { id:5,  cat:'thumbnail', name:'Project Thumbnail #5', img:'assets/thumbnail-5.jpg', desc:'Visual storytelling dalam satu frame — setiap elemen dirancang untuk menarik perhatian.', color:'#120a0a', accent:'#c8102e' },
+  { id:6,  cat:'thumbnail', name:'Project Thumbnail #6', img:'assets/thumbnail-6.jpg', desc:'Visual storytelling dalam satu frame — setiap elemen dirancang untuk menarik perhatian.', color:'#120a0a', accent:'#c8102e' },
+  { id:7,  cat:'thumbnail', name:'Project Thumbnail #7', img:'assets/thumbnail-7.jpg', desc:'Visual storytelling dalam satu frame — setiap elemen dirancang untuk menarik perhatian.', color:'#120a0a', accent:'#c8102e' },
+  // POSTER
+  { id:8,  cat:'poster', name:'Project Poster #1', img:'assets/poster-1.jpg', desc:'Poster sinematik dengan tata cahaya dramatis dan komposisi editorial premium.', color:'#0a0a1a', accent:'#8b2be2' },
+  { id:9,  cat:'poster', name:'Project Poster #2', img:'assets/poster-2.jpg', desc:'Poster event dengan visual yang menggabungkan elemen digital dan analog secara elegan.', color:'#100a1a', accent:'#9b2be2' },
+  { id:10, cat:'poster', name:'Project Poster #3', img:'assets/poster-3.jpg', desc:'Desain poster yang memadukan tipografi bold dengan ilustrasi visual yang kuat.', color:'#130a1a', accent:'#7b1be2' },
+  // PRODUCT ADS
+  { id:11, cat:'ads', name:'Project Ads #1', img:'assets/ads-1.jpg', desc:'Iklan produk dengan visual premium — membuat produk tampil lebih mewah dari harganya.', color:'#0a120a', accent:'#2ba060' },
+  { id:12, cat:'ads', name:'Project Ads #2', img:'assets/ads-2.jpg', desc:'Product ads berteknologi AI visual yang meningkatkan conversion rate secara signifikan.', color:'#0a1510', accent:'#3bb070' },
+  // AI VISUAL ART
+  { id:13, cat:'ai', name:'AI Visual Art #1', img:'assets/ai-1.jpg', desc:'Karya AI art yang memadukan futuristic architecture dengan organic surrealism.', color:'#0f0a1a', accent:'#5b2be2' },
+  { id:14, cat:'ai', name:'AI Visual Art #2', img:'assets/ai-2.jpg', desc:'Eksplorasi AI visual dengan mood sinematik dan palet warna yang memukau.', color:'#0a0f1a', accent:'#e22b8b' },
+  { id:15, cat:'ai', name:'AI Visual Art #3', img:'assets/ai-3.jpg', desc:'Digital art eksklusif yang menggabungkan kekuatan AI dengan sentuhan artistik manual.', color:'#0a0a1f', accent:'#2b8be2' },
+  // LOGO
+  { id:16, cat:'logo', name:'Project Logo #1', img:'assets/logo-1.jpg', desc:'Brand identity dengan logo yang mengkomunikasikan otoritas dan kepercayaan.', color:'#1a0e0a', accent:'#e2812b' },
+  { id:17, cat:'logo', name:'Project Logo #2', img:'assets/logo-2.jpg', desc:'Logo desain minimalis yang timeless — sederhana namun berkarakter kuat.', color:'#14100a', accent:'#d4a017' },
+  // SOCIAL MEDIA
+  { id:18, cat:'social', name:'Project Social #1', img:'assets/social-1.jpg', desc:'Feed Instagram yang kohesif dengan estetika brand yang konsisten dan eye-catching.', color:'#0a101a', accent:'#2b8be2' },
+  { id:19, cat:'social', name:'Project Social #2', img:'assets/social-2.jpg', desc:'Konten sosial media yang dirancang untuk viral — visual pertama, pesan kedua.', color:'#0a1410', accent:'#2be2a0' },
+  { id:20, cat:'social', name:'Project Social #3', img:'assets/social-3.jpg', desc:'Template sosial media premium yang meningkatkan brand recognition secara organik.', color:'#0a0f14', accent:'#2bb5e2' },
+  // VIDEO
+  { id:21, cat:'video', name:'Project Video #1', img:'assets/video-1.jpg', desc:'Creative direction untuk brand film — dari konsep hingga visual akhir yang memukau.', color:'#1a0a0a', accent:'#c8102e' },
+  { id:22, cat:'video', name:'Project Video #2', img:'assets/video-2.jpg', desc:'Direction video konten reels & short-form dengan ritme visual yang adiktif.', color:'#150a0a', accent:'#ff2040' },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// FEATURED PROJECTS
-// Ukuran gambar yang disarankan: 1920 x 500 px (landscape)
-// Nama file: assets/featured-1.jpg, featured-2.jpg, featured-3.jpg, featured-4.jpg
-// Taruh di folder assets/ bersama file gambar lainnya
-// ─────────────────────────────────────────────────────────────────────────────
 const featuredProjects = [
   {
     num: '01',
@@ -1017,17 +1036,17 @@ const services = [
 function renderPortfolio() {
   const grid = document.getElementById('portfolio-grid');
   grid.innerHTML = portfolioItems.map(item => {
+    const initials = item.name.substring(0,2).toUpperCase();
     return `
-    <div class="port-item reveal" data-cat="${item.cat}" data-ratio="${item.ratio || 'landscape'}" onclick="openModal(${item.id})">
+    <div class="port-item reveal" data-cat="${item.cat}" onclick="openModal(${item.id})">
       <div class="port-img">
-        <div class="port-img-inner" style="background:linear-gradient(135deg,${item.color},${item.accent}22)">
-          <img src="${item.img}" alt="${item.name}" onerror="this.style.display='none'">
-          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.07;pointer-events:none;z-index:2" viewBox="0 0 400 300">
-            <defs><radialGradient id="rg${item.id}" cx="50%" cy="50%"><stop offset="0%" stop-color="${item.accent}"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
-            <rect width="400" height="300" fill="url(#rg${item.id})"/>
-          </svg>
-          <span style="position:relative;z-index:3;font-family:'Bebas Neue',sans-serif;font-size:3.5rem;letter-spacing:0.1em;color:rgba(255,255,255,0.07)">${item.name.substring(0,2).toUpperCase()}</span>
-        </div>
+        <img
+          src="${item.img}"
+          alt="${item.name}"
+          loading="lazy"
+          onerror="this.style.display='none'; this.nextElementSibling.classList.add('show');"
+        >
+        <div class="port-img-placeholder" style="background:linear-gradient(135deg,${item.color},${item.accent}22)">${initials}</div>
         <div class="port-glow"></div>
       </div>
       <div class="port-overlay">
@@ -1045,16 +1064,13 @@ function renderFeatured() {
   const dots  = document.getElementById('feat-dots');
 
   track.innerHTML = featuredProjects.map((p, i) => {
-    // Build inline style: if img exists → use as bg-image, else fallback gradient
     const bgStyle = p.img
       ? `background-image:url('${p.img}');background-size:cover;background-position:center;background-repeat:no-repeat;`
       : `background:linear-gradient(135deg,${p.color1},${p.color2},rgba(200,16,46,0.12));`;
 
-    // SVG pattern always shown underneath (adds cinematic texture even on photos)
     return `
     <div class="featured-card">
       <div class="featured-card-bg" style="${bgStyle}">
-        <!-- subtle red overlay texture — always present, blends with photo -->
         <svg class="feat-svg-fallback" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="fg${i}" cx="65%" cy="40%">
@@ -1122,7 +1138,10 @@ function openModal(id) {
     img.onerror = function(){ this.style.display='none'; };
     modalImgEl.appendChild(img);
   }
-  modalImgEl.innerHTML += `<span style="position:relative;z-index:0">${item.name.substring(0,2).toUpperCase()}</span>`;
+  const span = document.createElement('span');
+  span.style.cssText = 'position:relative;z-index:0';
+  span.textContent = item.name.substring(0,2).toUpperCase();
+  modalImgEl.appendChild(span);
   document.getElementById('modal-cat').textContent = item.cat.charAt(0).toUpperCase()+item.cat.slice(1)+' Design';
   document.getElementById('modal-title').textContent = item.name;
   document.getElementById('modal-desc').textContent = item.desc;
