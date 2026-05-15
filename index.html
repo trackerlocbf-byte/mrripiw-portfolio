@@ -1270,19 +1270,51 @@ document.querySelectorAll('a,button,[onclick],.port-item,.filter-btn,.fc-btn,.so
   draw();
 })();
 
-// ─── CONTACT FORM ─────────────────────────────────────────────────────────────
-document.getElementById('contact-form').addEventListener('submit', function(e){
+// ─── CONTACT FORM (Formspree) ─────────────────────────────────────────────────
+document.getElementById('contact-form').addEventListener('submit', async function(e){
   e.preventDefault();
-  const btn = document.getElementById('form-submit');
+  const btn     = document.getElementById('form-submit');
   const success = document.getElementById('form-success');
-  btn.textContent = 'Sending...'; btn.disabled = true;
-  setTimeout(()=>{
-    btn.style.display='none'; success.style.display='block';
-    document.getElementById('form-name').value='';
-    document.getElementById('form-email').value='';
-    document.getElementById('form-service').value='';
-    document.getElementById('form-msg').value='';
-  },1500);
+  const form    = this;
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const data = {
+    name:    document.getElementById('form-name').value,
+    email:   document.getElementById('form-email').value,
+    service: document.getElementById('form-service').value,
+    message: document.getElementById('form-msg').value,
+  };
+
+  try {
+    const res = await fetch('https://formspree.io/f/mqenwgjr', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body:    JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      btn.style.display = 'none';
+      success.textContent = '✓ Message sent! I\'ll get back to you within 24 hours.';
+      success.style.display = 'block';
+      form.reset();
+    } else {
+      const json = await res.json().catch(()=>({}));
+      const errMsg = (json.errors && json.errors.map(e=>e.message).join(', ')) || 'Something went wrong. Please try again.';
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      success.textContent = '✗ ' + errMsg;
+      success.style.display = 'block';
+      success.style.borderColor = 'var(--red-bright)';
+    }
+  } catch (err) {
+    btn.textContent = 'Send Message →';
+    btn.disabled = false;
+    success.textContent = '✗ Network error. Please check your connection and try again.';
+    success.style.display = 'block';
+    success.style.borderColor = 'var(--red-bright)';
+  }
 });
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
