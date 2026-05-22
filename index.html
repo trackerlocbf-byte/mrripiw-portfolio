@@ -112,8 +112,16 @@ section{position:relative;z-index:5}
 .featured-shell{position:relative;margin-top:2.6rem;min-height:560px;perspective:1400px}
 .featured-track{display:flex;height:560px;transition:transform .7s cubic-bezier(.16,1,.3,1)}
 .featured-card{min-width:100%;position:relative;display:grid;align-items:end;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.featured-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.04);filter:saturate(1.1) contrast(1.04)}
-.featured-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,3,5,.94),rgba(3,3,5,.42),rgba(3,3,5,.92)),linear-gradient(to top,rgba(3,3,5,.96),transparent 65%)}
+.featured-bg{position:absolute;inset:0;background-size:cover,cover,cover;background-position:center;transform:scale(1.04);filter:saturate(1.1) contrast(1.04)}
+.featured-bg::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 70% 36%,rgba(255,36,72,.34),transparent 18%),
+  radial-gradient(circle at 44% 54%,rgba(255,107,74,.18),transparent 24%),
+  repeating-linear-gradient(110deg,transparent 0 62px,rgba(255,36,72,.13) 63px,transparent 65px);
+  opacity:.72;mix-blend-mode:screen}
+.featured-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,3,5,.94),rgba(3,3,5,.34),rgba(3,3,5,.9)),linear-gradient(to top,rgba(3,3,5,.96),transparent 65%)}
+.featured-art{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.featured-art::before{content:"";position:absolute;right:10%;top:9%;width:min(520px,52vw);aspect-ratio:1;border:2px solid rgba(255,36,72,.48);border-radius:50%;box-shadow:0 0 80px rgba(255,36,72,.22),inset 0 0 60px rgba(255,36,72,.1);transform:rotateX(68deg) rotateZ(-18deg)}
+.featured-art::after{content:"";position:absolute;right:17%;top:16%;width:min(360px,40vw);aspect-ratio:1;background:linear-gradient(135deg,rgba(255,36,72,.55),rgba(200,16,46,.08));clip-path:polygon(50% 0,100% 28%,82% 100%,18% 100%,0 28%);filter:drop-shadow(0 28px 70px rgba(255,36,72,.24));transform:perspective(800px) rotateY(-24deg) rotateX(14deg)}
 .featured-content{position:relative;z-index:2;padding:clamp(1.5rem,5vw,4rem);width:min(760px,100%)}
 .featured-num{color:var(--hot);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase}.featured-title{font-family:"Bebas Neue";font-size:clamp(2.5rem,7vw,5rem);line-height:.86;letter-spacing:.04em;margin:.7rem 0 1rem}.featured-desc{color:var(--muted);font-size:.76rem;line-height:2}
 .featured-controls{position:absolute;right:clamp(1rem,4vw,4rem);bottom:clamp(1rem,4vw,4rem);z-index:4;display:flex;gap:.6rem}
@@ -325,7 +333,7 @@ function openModal(id){
 function closeModal(){ $('#modal').classList.remove('open'); document.body.style.overflow='';}
 $('#modalClose').onclick=closeModal; $('#modal').onclick=e=>{if(e.target.id==='modal')closeModal()}; addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
-$('#featuredTrack').innerHTML=featuredProjects.map(p=>`<article class="featured-card"><div class="featured-bg" style="background-image:linear-gradient(135deg,#141421,#260814),url('${p.img}')"></div><div class="featured-content"><div class="featured-num">${p.num} / 0${featuredProjects.length}</div><h3 class="featured-title">${p.title}</h3><p class="featured-desc">${p.desc}</p></div></article>`).join('');
+$('#featuredTrack').innerHTML=featuredProjects.map(p=>`<article class="featured-card"><div class="featured-bg" style="background-image:url('${p.img}'),radial-gradient(circle at 72% 35%,rgba(255,36,72,.3),transparent 24%),linear-gradient(135deg,#171722,#260814)"></div><div class="featured-art"></div><div class="featured-content"><div class="featured-num">${p.num} / 0${featuredProjects.length}</div><h3 class="featured-title">${p.title}</h3><p class="featured-desc">${p.desc}</p></div></article>`).join('');
 $('#dots').innerHTML=featuredProjects.map((_,i)=>`<button class="dot ${i?'':'active'}" aria-label="Project ${i+1}" data-i="${i}"></button>`).join('');
 let slide=0; function go(i){slide=(i+featuredProjects.length)%featuredProjects.length;$('#featuredTrack').style.transform=`translateX(-${slide*100}%)`;$$('.dot').forEach((d,j)=>d.classList.toggle('active',j===slide))}
 $('#prev').onclick=()=>go(slide-1); $('#next').onclick=()=>go(slide+1); $('#dots').onclick=e=>{if(e.target.matches('.dot'))go(+e.target.dataset.i)}; setInterval(()=>go(slide+1),6200);
